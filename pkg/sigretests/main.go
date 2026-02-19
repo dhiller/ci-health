@@ -171,7 +171,7 @@ func filterOptionalJobs(org, repo, prNumber string, unfilteredJobs []job) ([]job
 			return nil, err
 		}
 		defer prowJobJSON.Body.Close()
-		if prowJobJSON.StatusCode != 200 {
+		if prowJobJSON.StatusCode != http.StatusOK {
 			continue
 		}
 
